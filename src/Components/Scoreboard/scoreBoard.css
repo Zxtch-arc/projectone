@@ -19,7 +19,9 @@
     font-weight: 800;
 }
 
-.teamWins {
+.teamWins {justify-content: flex-end;
+    
  height: 100px;
     width: 50px;
 }
+

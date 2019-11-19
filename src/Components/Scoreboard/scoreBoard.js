@@ -14,7 +14,7 @@ import ScoreBoardItem from './scoreBoardItem';
         <ScoreBoardItem src='https://images.blz-contentstack.com/v3/assets/blt0c238ac68842739d/bltbdeb6403ff60f632/5d636c395f9bd51c4085274c/Team_Logos_Text_Seoul.svg?auto=webp'/>
         <ScoreBoardItem src='https://images.blz-contentstack.com/v3/assets/blt08ea291d4b1b5415/blt25b259515bf97676/5d62fb99cfdefb1cd5f9658c/Team_Logos_Text_Boston.svg?auto=webp'/>
         <ScoreBoardItem src='https://images.blz-contentstack.com/v3/assets/blt2f3118bd7598c39a/blt921b880fc3f86918/5d6305a4cfdefb1cd5f965a4/Team_Logos_Text_Dallas.svg?auto=webp'/>
-        <ScoreBoardItem src='https://images.blz-contentstack.com/v3/assets/blt8d31b6ce57071d40/bltbb012a85433cc715/5d6325147c931b106e8afd53/Team_Logos_Text_GLA.svg?auto=webp'/>       
+        <ScoreBoardItem src='https://images.blz-contentstack.com/v3/assets/blt8d31b6ce57071d40/bltbb012a85433cc715/5d6325147c931b106e8afd53/Team_Logos_Text_GLA.svg?auto=webp'/> 
     </div>
   );
 }
