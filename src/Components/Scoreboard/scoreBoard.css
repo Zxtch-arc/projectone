@@ -1,0 +1,14 @@
+.scoreBoard {
+    height: auto;
+    margin: rem(50);
+  }
+
+.scoreBoardItem {
+    border: 1px solid black;
+}
+
+.teamLogo {
+height: 200px;
+width: 200px;
+
+}
