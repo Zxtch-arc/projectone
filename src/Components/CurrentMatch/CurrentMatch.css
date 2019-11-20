@@ -1,0 +1,39 @@
+.currentVs {
+    justify-content: right;
+
+
+
+}
+
+
+
+.homeTeam {
+    height: 100px;
+    width: 100px;
+
+
+
+}
+
+.opposingTeam {
+    height: 100px;
+    width: 100px;
+
+
+
+}
+
+
+.opposingTeamscore {
+    color: white;
+    font-size: 50px;
+    font-weight: 80;
+}
+
+.currentScores {
+    
+    color: white;
+    font-size: 50px;
+    font-weight: 80;
+
+}

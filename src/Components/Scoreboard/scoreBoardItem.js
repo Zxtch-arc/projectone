@@ -1,16 +1,12 @@
 import React from 'react';
+import Team from '../Team/team';
+import CurrentMatch from '../CurrentMatch/currentMatch'
 
  const ScoreBoardItem = ({src}) => {
   return (
     <div className="scoreBoardItem">
-        <div className="teamLogo">
-            <img src={src} alt='team logo'></img>
-       </div>
-        <div className="teamStats">
-                <span className="teamWins">1</span>
-                -
-                <span className="teamLosses">0</span>
-            </div>  
+      <Team src={src} />
+      <CurrentMatch />
     </div>
   );
 }
