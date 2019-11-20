@@ -1,9 +1,18 @@
-.Banner{
+.Banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: auto;
     width: 100%;
     font-weight: 800;
     text-align: center;
     font-size: 50px;
-    background-color: r
-    ;
+    color: white;
+    background-color: black;
+}
+
+.bannerLogo {
+    display: flex;
+    height: auto;
+    width: 100px;
 }

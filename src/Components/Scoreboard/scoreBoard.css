@@ -7,6 +7,7 @@
 .scoreBoardItem {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border: 1px solid white;
 }
 
@@ -18,12 +19,12 @@
 .teamStats {
     color: white;
     font-size: 50px;
-    font-weight: 800;
+    font-weight: 500;
 }
 
-.teamWins {justify-content: flex-end;
-    
- height: 100px;
+.teamWins {
+    justify-content: flex-end;
+    height: 100px;
     width: 50px;
 }
 
