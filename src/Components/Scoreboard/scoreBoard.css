@@ -7,9 +7,11 @@
 .scoreBoardItem {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     border: 1px solid white;
 }
+
+
 
 .teamLogo {
     height: 200px;  
@@ -17,6 +19,7 @@
 }
 
 .teamStats {
+    
     color: white;
     font-size: 50px;
     font-weight: 500;
@@ -28,3 +31,8 @@
     width: 50px;
 }
 
+.teamWinLoss {
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+}

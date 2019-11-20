@@ -6,10 +6,13 @@ import React from 'react';
         <div className="teamLogo">
         <img src={src} alt='team logo'></img>
         </div>
+        <div className="teamContainer">
+          <span className="teamWinLoss">W/L</span>
         <div className="teamStats">
             <span className="teamWins">1</span>
             -
             <span className="teamLosses">0</span>
+            </div>
         </div>
     </React.Fragment>
   );

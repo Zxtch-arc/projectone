@@ -3,7 +3,7 @@ import './currentMatch.css'
 
  const CurrentMatch = () => {
   return (
-      <div className='currenMatchContainer'>
+      <div className='currentMatchContainer'>
          <span className='currentMatchTitle'>Current Match</span>
          <div className='currentVs'>
             <div className='homeTeam'>
@@ -11,11 +11,11 @@ import './currentMatch.css'
             </div>
             <div className='currentScores'>
                 <span className='homeTeamscore'>3</span>
-                VS.
+                -
                 <span className='opposingTeamscore'>2</span>    
             </div>
             <div className='opposingTeam'>
-                <img src='https://pbs.twimg.com/profile_images/1179402715392282627/AR4Xv02g_400x400.png'/> 
+                <img src='https://eui6dii703-flywheel.netdna-ssl.com/wp-content/uploads/2018/05/San-Francisco-Shock.png'/> 
             </div>
         </div>
     </div>
