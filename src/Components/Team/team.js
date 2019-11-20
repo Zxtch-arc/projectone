@@ -7,7 +7,7 @@ import React from 'react';
         <img src={src} alt='team logo'></img>
         </div>
         <div className="teamContainer">
-          <span className="teamWinLoss">W/L</span>
+          <span className="teamWinLoss">W-L</span>
         <div className="teamStats">
             <span className="teamWins">1</span>
             -
