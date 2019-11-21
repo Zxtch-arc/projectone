@@ -15,7 +15,7 @@ import Match from '../Match/Match.js'
       <Match 
         matchTitle={'Recent'}
         homeTeamLogo='https://bnetcmsus-a.akamaihd.net/cms/gallery/0KOSPFU6UC411543976755522.svg' 
-        opposingTeamLogo='https://liquipedia.net/commons/images/thumb/9/93/San_Francisco_Shock_Alt_logo.png/344px-San_Francisco_Shock_Alt_logo.png'
+        opposingTeamLogo='https://liquipedia.net/commons/images/thumb/9/93/San_Francisco_Shock_Alt_logo.png/688px-San_Francisco_Shock_Alt_logo.png'
         homeTeamScore='4'
         opposingTeamScore='0'
       />
