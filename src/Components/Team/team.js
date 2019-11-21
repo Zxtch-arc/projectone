@@ -1,6 +1,6 @@
 import React from 'react';
 
- const Team = ({src}) => {
+ const Team = ({teamWins, teamLosses, src}) => {
   return (
       <React.Fragment>
         <div className="teamLogo">
@@ -9,9 +9,9 @@ import React from 'react';
         <div className="teamContainer">
           <span className="teamWinLoss">W-L</span>
         <div className="teamStats">
-            <span className="teamWins">1</span>
+  <span className="teamWins">{teamWins}</span>
             -
-            <span className="teamLosses">0</span>
+            <span className="teamLosses">{teamLosses}</span>
             </div>
         </div>
     </React.Fragment>
