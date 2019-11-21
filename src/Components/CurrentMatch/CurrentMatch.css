@@ -40,3 +40,9 @@
 
 
 }
+
+.currentScoresContainer {
+    display: flex;
+    flex-direction: column;
+
+}
