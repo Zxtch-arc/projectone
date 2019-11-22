@@ -18,28 +18,38 @@ export default class ScoreBoard extends React.Component {
     };
   }
 
-  fetchTeamName() {
-    return OWL.findTeamName(7696).then(response => {
-      this.setState({ team: {name: response.data }});
-    });
-  }
-  
   fetchTeamLogo() {
     return OWL.getTeamLogo(7696).then(response => {
-      this.setState({ team: {logo: response.data }});
+      this.setState(state =>{
+        console.log(state)
+        return { 
+          ...this.state,
+          team: {
+          logo: response.data
+        }};
+      });
     });
   }
 
   fetchMatchWins() {
     return OWL.getMatchWins(7696).then(response => {
-      this.setState({ team: {matchWins: response.data }});
+      this.setState(state =>{
+        console.log(state)
+        return { 
+          ...this.state,
+          team: {
+          matchWins: response.data
+        }};
+      });
     });
   }
 
+
   componentDidMount() {
-    this.fetchTeamName();
     this.fetchTeamLogo();
     this.fetchMatchWins();
+    
+    // https://api.overwatchleague.com/teams/7696
   }
 
   render() {
