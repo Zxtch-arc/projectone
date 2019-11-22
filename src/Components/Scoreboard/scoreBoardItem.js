@@ -2,13 +2,15 @@ import React from 'react';
 import Team from '../Team/team';
 import Match from '../Match/Match.js'
 
- const ScoreBoardItem = ({src}) => {
+ const ScoreBoardItem = ({src, matchWins }) => {
+
+  console.log('logo',src)
   return (
     <div className="scoreBoardItem">
   
-      <Team 
+      <Team
         src={src}
-        teamWins='43'
+        matchWins={matchWins}
         teamLosses='0' 
       />
 
