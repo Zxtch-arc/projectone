@@ -1,64 +1,33 @@
 
-import React from "react";
-import "./scoreBoard.css";
+import React, {useState, useEffect} from "react";
+import OverwatchLeague from "overwatchleague";
 import ScoreBoardItem from "./scoreBoardItem";
-const OverwatchLeague = require("overwatchleague");
+import "./scoreBoard.css";
 
 const OWL = new OverwatchLeague();
 
-export default class ScoreBoard extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      team: {
-        name:'',
-        logo: '',
-        matchWins: '',
-      }
-    };
+const ScoreBoard = () => {
+  const [logo, setLogo] = useState('');
+  const [wins, setMatchWins] = useState(0);
+  
+  const fetchData = async () => {
+    const response = await OWL.getTeamLogo(7696)
+    .then(response => {
+      setLogo(response.data)
+    }).then(OWL.getMatchWins(7696).then(response => {
+      setMatchWins(response.data)
+    })).catch(error => console.log(error));
   }
 
-  fetchTeamLogo() {
-    return OWL.getTeamLogo(7696).then(response => {
-      this.setState(state =>{
-        console.log(state)
-        return { 
-          ...this.state,
-          team: {
-          logo: response.data
-        }};
-      });
-    });
-  }
+  useEffect(() => {
+    fetchData();
+  })
 
-  fetchMatchWins() {
-    return OWL.getMatchWins(7696).then(response => {
-      this.setState(state =>{
-        console.log(state)
-        return { 
-          ...this.state,
-          team: {
-          matchWins: response.data
-        }};
-      });
-    });
-  }
-
-
-  componentDidMount() {
-    this.fetchTeamLogo();
-    this.fetchMatchWins();
-    
-    // https://api.overwatchleague.com/teams/7696
-  }
-
-  render() {
-    const { team } = this.state;
-    console.log("hey this is our awesome data", team);
-      return (
-      <div className="scoreBoard">
-        <ScoreBoardItem src={team.logo} matchWins={team.matchWins} />
-      </div>
-    );
-  }
+  return (
+    <div className="scoreBoard">
+      <ScoreBoardItem logo={logo} wins={wins} />
+    </div>
+  );
 }
+
+export default ScoreBoard;
