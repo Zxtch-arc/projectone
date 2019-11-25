@@ -12,7 +12,8 @@ const ScoreBoardItem = ({teamId}) => {
  const [loss, setLoss] = useState(0);
  const [opponentId, setOpponentId] = useState('');
  const [opponentLogo, setOpponentLogo] = useState('');
- const [matchScore, setMatchscore] = useState(0);
+ const [opponentScore, setOpponentScore] = useState(0);
+ const [homeScore, setHomeScore] = useState(0);
 
  const fetchData = async () => {
    const response = await  OWL.getTeamLogo(teamId)
@@ -24,12 +25,15 @@ const ScoreBoardItem = ({teamId}) => {
      setLoss(response.data)
    })).then(OWL.lastMatchForTeam(teamId).then(response => {
      const team = response.data;
-     console.log('team test', team)
+     console.log(team)
      setOpponentId(team.competitors[0].id)
+     setOpponentScore(team.scores[0].value)
+     setHomeScore(team.scores[1].value)
   })).then(OWL.getTeamLogo(opponentId)
   .then(response => {
     setOpponentLogo(response.data)
-  }))}
+  }).catch(error => console.log(error))
+)}
 //   .then(OWL.lastMatchForTeam(teamId).then(response => {
 //     const team = response.data;
 //     console.log('team test', team)
@@ -55,8 +59,8 @@ const ScoreBoardItem = ({teamId}) => {
       matchTitle={'recent'}
       homeTeamLogo={logo} 
       opposingTeamLogo={opponentLogo}
-      homeTeamScore='4'
-      opposingTeamScore='0'
+      homeTeamScore={homeScore}
+      opposingTeamScore={opponentScore}
     />
     <Match
       matchTitle={'Current'}
@@ -70,4 +74,4 @@ const ScoreBoardItem = ({teamId}) => {
   </div>
 )};
 
-export default ScoreBoardItem
+export default ScoreBoardItem;
