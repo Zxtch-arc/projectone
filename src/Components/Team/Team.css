@@ -1,6 +1,32 @@
 .teamContainer {
-        border: 1px solid white;
-        
-        
-        }
+height: 100%;
+  width: auto; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.teamLogo {
+  height: auto;
+  width: 200px;
+  /* min-width: 100px; */
+}
+
+.teamStats {
+  display: flex;
+  color: white;
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.teamWins {
+  justify-content: flex-end;
+  height: 100px;
+  width: 50px;
+}
+
+.teamWinLoss {
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+}

@@ -4,25 +4,19 @@ import OverwatchLeague from "overwatchleague";
 import ScoreBoardItem from "./scoreBoardItem";
 import "./scoreBoard.css";
 
-const OWL = new OverwatchLeague();
 
 const ScoreBoard = () => {
+  // const OWL = new OverwatchLeague();
 
-  // const [teams, setTeams] = useState([]);
-  
-  // const fetchData = async () => {
-  //   const response = await OWL.getTeams()
-  //   .then(response => {
-  //     setTeams(response.data)
-  //   }).catch(error => console.log(error))
-  // }
- 
-  // useEffect(() => {
-  //   fetchData();
+  // const [team, setTeam] = useState([]);
+
+  // OWL.getTeams().then(response => {
+  //   const game = response.data
+  //   console.log(game)
+  //   setTeam(game.competitors)
   // })
-
-  // console.log('the value of all teams',teams)
-
+  
+  // console.log(team)
   return (
     <div className="scoreBoard">
       <ScoreBoardItem teamId={7696}/>

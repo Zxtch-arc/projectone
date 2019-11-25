@@ -3,10 +3,10 @@ import OverwatchLeague from "overwatchleague";
 import Team from '../Team/team';
 import Match from '../Match/Match.js'
 
-const OWL = new OverwatchLeague();
 
 const ScoreBoardItem = ({teamId}) => {
- 
+ const OWL = new OverwatchLeague();
+  
  const [logo, setLogo] = useState('');
  const [wins, setMatchWins] = useState(0);
  const [loss, setLoss] = useState(0);
@@ -25,7 +25,6 @@ const ScoreBoardItem = ({teamId}) => {
      setLoss(response.data)
    })).then(OWL.lastMatchForTeam(teamId).then(response => {
      const team = response.data;
-     console.log(team)
      setOpponentId(team.competitors[0].id)
      setOpponentScore(team.scores[0].value)
      setHomeScore(team.scores[1].value)
@@ -45,8 +44,6 @@ const ScoreBoardItem = ({teamId}) => {
    fetchData();
  })
 
-//  console.log('currentlivematch data', OWL.getLiveMatch(teamId) )
-
  return(
   <div className="scoreBoardItem">
     <Team
@@ -56,7 +53,7 @@ const ScoreBoardItem = ({teamId}) => {
     />
 
     <Match 
-      matchTitle={'recent'}
+      matchTitle={'Recent'}
       homeTeamLogo={logo} 
       opposingTeamLogo={opponentLogo}
       homeTeamScore={homeScore}
@@ -69,7 +66,6 @@ const ScoreBoardItem = ({teamId}) => {
       homeTeamScore='3'
       opposingTeamScore='2'
     />
-    
 
   </div>
 )};
