@@ -1,19 +1,60 @@
-import React from 'react';
+import React, {useState, useEffect} from "react";
+import OverwatchLeague from "overwatchleague";
 import Team from '../Team/team';
 import Match from '../Match/Match.js'
 
- const ScoreBoardItem = ({logo, wins}) => (
+const OWL = new OverwatchLeague();
+
+const ScoreBoardItem = ({teamId}) => {
+ 
+ const [logo, setLogo] = useState('');
+ const [wins, setMatchWins] = useState(0);
+ const [loss, setLoss] = useState(0);
+ const [opponentId, setOpponentId] = useState('');
+ const [opponentLogo, setOpponentLogo] = useState('');
+ const [matchScore, setMatchscore] = useState(0);
+
+ const fetchData = async () => {
+   const response = await  OWL.getTeamLogo(teamId)
+   .then(response => {
+     setLogo(response.data)
+   }).then(OWL.getMatchWins(teamId).then(response => {
+     setMatchWins(response.data)
+   })).then(OWL.getMatchLoss(teamId).then(response => { 
+     setLoss(response.data)
+   })).then(OWL.lastMatchForTeam(teamId).then(response => {
+     const team = response.data;
+     console.log('team test', team)
+     setOpponentId(team.competitors[0].id)
+  })).then(OWL.getTeamLogo(opponentId)
+  .then(response => {
+    setOpponentLogo(response.data)
+  }))}
+//   .then(OWL.lastMatchForTeam(teamId).then(response => {
+//     const team = response.data;
+//     console.log('team test', team)
+//     setMatchscore(team.scores[0].id)
+//   .catch(error => console.log(error))
+//  }))
+
+ useEffect(() => {
+   fetchData();
+ })
+
+//  console.log('currentlivematch data', OWL.getLiveMatch(teamId) )
+
+ return(
   <div className="scoreBoardItem">
     <Team
       logo={logo}
       wins={wins}
-      teamLosses='0' 
+      teamLosses={loss}
     />
 
     <Match 
-      matchTitle={'Recent'}
+      matchTitle={'recent'}
       homeTeamLogo={logo} 
-      opposingTeamLogo='https://liquipedia.net/commons/images/thumb/9/93/San_Francisco_Shock_Alt_logo.png/688px-San_Francisco_Shock_Alt_logo.png'
+      opposingTeamLogo={opponentLogo}
       homeTeamScore='4'
       opposingTeamScore='0'
     />
@@ -27,6 +68,6 @@ import Match from '../Match/Match.js'
     
 
   </div>
-);
+)};
 
-export default ScoreBoardItem;
+export default ScoreBoardItem
