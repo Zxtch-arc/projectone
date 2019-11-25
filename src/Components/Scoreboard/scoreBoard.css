@@ -3,9 +3,14 @@
 }
 
 .scoreBoardItem {
+    border: 5px solid white;
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 100%;
 }
 
+.videoPlayer {
+    height: 100%;
+    width: auto;
+}

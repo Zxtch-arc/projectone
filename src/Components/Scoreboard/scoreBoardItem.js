@@ -51,7 +51,6 @@ const ScoreBoardItem = ({teamId}) => {
       wins={wins}
       teamLosses={loss}
     />
-
     <Match 
       matchTitle={'Recent'}
       homeTeamLogo={logo} 
@@ -59,14 +58,10 @@ const ScoreBoardItem = ({teamId}) => {
       homeTeamScore={homeScore}
       opposingTeamScore={opponentScore}
     />
-    <Match
-      matchTitle={'Current'}
-      homeTeamLogo={logo}
-      opposingTeamLogo='https://images.blz-contentstack.com/v3/assets/blt0c238ac68842739d/blt9f8719fbc58dc316/5d636d843471931c451d348c/Team_Logos_Seoul.svg?auto=webp'
-      homeTeamScore='3'
-      opposingTeamScore='2'
-    />
 
+    <video className="videoPlayer" controls width="250">
+      <source src="" />
+    </video>
   </div>
 )};
 
