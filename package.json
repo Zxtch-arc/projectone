@@ -2,6 +2,7 @@
   "name": "zxtcharch",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://zxtch-arc.github.io/projectone/",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
