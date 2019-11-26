@@ -1,5 +1,4 @@
 .scoreBoard {
-    background-color: black;
 }
 
 .scoreBoardItem {
@@ -8,6 +7,7 @@
     align-items: center;
     justify-content: space-around;
     width: 100%;
+    background-color: rgb(152, 158, 158);
 }
 
 .videoPlayer {
