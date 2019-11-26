@@ -31,7 +31,7 @@ const ScoreBoard = () => {
 
   useEffect(() => {
     fetchData();
-  });
+  },[]);
   
   return (
     <div className="scoreBoard">
