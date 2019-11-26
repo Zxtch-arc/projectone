@@ -14,6 +14,7 @@ const ScoreBoardItem = ({teamId}) => {
  const [opponentLogo, setOpponentLogo] = useState('');
  const [opponentScore, setOpponentScore] = useState(0);
  const [homeScore, setHomeScore] = useState(0);
+ const [teamName, setTeamName] = useState('');
 
  const fetchData = async () => {
    const response = await  OWL.getTeamLogo(teamId)
@@ -31,7 +32,9 @@ const ScoreBoardItem = ({teamId}) => {
   })).then(OWL.getTeamLogo(opponentId)
   .then(response => {
     setOpponentLogo(response.data)
-  }).catch(error => console.log(error))
+  }).then(OWL.findTeamName(teamId).then(response => {
+    setTeamName(response.data)
+  })).catch(error => console.log(error))
 )}
 //   .then(OWL.lastMatchForTeam(teamId).then(response => {
 //     const team = response.data;
@@ -47,6 +50,7 @@ const ScoreBoardItem = ({teamId}) => {
  return(
   <div className="scoreBoardItem">
     <Team
+      teamName={teamName}
       logo={logo}
       wins={wins}
       teamLosses={loss}
@@ -59,8 +63,7 @@ const ScoreBoardItem = ({teamId}) => {
       opposingTeamScore={opponentScore}
     />
 
-    <video className="videoPlayer" controls width="250">
-      <source src="" />
+    <video className="videoPlayer" src="https://player2.majorleaguegaming.com/api/v2/player/embed/vod/owl-web?vid=SZEMePPMEzh&lang=en-us" controls width="250" crossOrigin="" >
     </video>
   </div>
 )};

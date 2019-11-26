@@ -1,11 +1,14 @@
 import React from 'react';
 import "./team.css";
 
- const Team = ({wins, teamLosses, logo}) => {
+ const Team = ({wins, teamLosses, logo, teamName}) => {
   return (
       <React.Fragment>
    
         <div className="teamContainer">
+          <div className="teamName">
+          {teamName}
+          </div>
           <div className="teamLogo">
             <img src={logo} alt='team logo'></img>
           </div>

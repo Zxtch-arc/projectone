@@ -6,15 +6,15 @@ import "./scoreBoard.css";
 
 
 const ScoreBoard = () => {
-  // const OWL = new OverwatchLeague();
+  const OWL = new OverwatchLeague();
 
   // const [team, setTeam] = useState([]);
 
-  // OWL.getTeams().then(response => {
-  //   const game = response.data
-  //   console.log(game)
-  //   setTeam(game.competitors)
-  // })
+  OWL.getVideos().then(response => {
+    const game = response.data
+    console.log(game)
+    // setTeam(game.competitors)
+  })
   
   // console.log(team)
   return (
