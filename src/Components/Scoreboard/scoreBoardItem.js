@@ -3,36 +3,59 @@ import OverwatchLeague from "overwatchleague";
 import Team from '../Team/team';
 import Match from '../Match/Match.js'
 
-const OWL = new OverwatchLeague();
 
 const ScoreBoardItem = ({teamId, teamName, teamLogo}) => {
+  const OWL = new OverwatchLeague();
+
  const [wins, setMatchWins] = useState(0);
  const [loss, setLoss] = useState(0);
- const [opponentId, setOpponentId] = useState('');
+//  const [opponentId, setOpponentId] = useState('');
  const [opponentLogo, setOpponentLogo] = useState('');
  const [opponentScore, setOpponentScore] = useState(0);
  const [homeScore, setHomeScore] = useState(0);
 
+ const getTeamIndexes = (competitors, homeTeamId) => {
+  //  debugger;
+   console.log({competitors, homeTeamId})
+   const home = competitors.findIndex(competitor => competitor.id === homeTeamId);
+   console.log({home})
+  //  if (home < 0) debugger;
+   const opponent = home === 0 ? 1 : 0;
+
+   return {home, opponent};
+ };
+
  const fetchData = () => {
-    OWL.getMatchWins(teamId).then(response => {
-      console.log(response.data)
-     setMatchWins(response.data)
-   }).then(OWL.getMatchLoss(teamId).then(response => { 
-     setLoss(response.data)
-   })).then(OWL.lastMatchForTeam(teamId).then(response => {
-     const team = response.data;
-     setOpponentId(team.competitors[1].id)
-     setOpponentScore(team.scores[0].value)
-     setHomeScore(team.scores[1].value)
-  })).then(OWL.getTeamLogo(opponentId)
-  .then(response => {
-    setOpponentLogo(response.data)
-  }).catch(error => console.log(error))
-)}
+    Promise.all([
+      OWL.getMatchWins(teamId),
+      OWL.getMatchLoss(teamId),
+      OWL.lastMatchForTeam(teamId)
+    ]).then(([teamWins, teamLoss, lastMatch]) => {
+      setMatchWins(teamWins.data);
+      setLoss(teamLoss.data);
+
+      const team = lastMatch.data;
+      console.log({team})
+
+      const { home, opponent } = getTeamIndexes(team.competitors, teamId);
+
+      setOpponentScore(team.scores[opponent].value)
+      setHomeScore(team.scores[home].value);
+      return team.competitors[opponent].id;
+    })
+    .then((opponentId) =>
+      OWL.getTeamLogo(opponentId)
+        .then(response => {
+          setOpponentLogo(response.data)
+        })
+    )
+    .catch(error => console.log(error))
+}
 
  useEffect(() => {
+   console.log("FETCHING ", teamId);
    fetchData(teamId);
- })
+ }, [])
 
  return(
   <div className="scoreBoardItem">

@@ -8,13 +8,13 @@
     background-color: rgb(152, 158, 158);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1020px) {
     .scoreBoardItem {
     flex-direction: column;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1020px) {
     .teamName {
         justify-content: flex-start;
         color:white;
@@ -23,7 +23,7 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1020px) {
     .teamLogo {
         height: auto;
         width: 100px;

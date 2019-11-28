@@ -22,7 +22,7 @@ const ScoreBoard = () => {
   const fetchData = () =>  {
      OWL.getTeams().then(response => {
       const data = response.data
-      console.log(data.competitors)
+      console.log("Competitors", data.competitors)
 
       setTeams(data.competitors)
     }).catch(error => console.log(error))
@@ -33,18 +33,19 @@ const ScoreBoard = () => {
     fetchData();
   }, []);
   
+  // const breakpoint
   return (
     <div className="scoreBoard">
-      {teams &&
+      {
           teams.map(
             (team, index) => {
 
               const { id, name, logo, primaryColor } = team.competitor; 
 
-              console.log(id)
+              console.log(`team ${index}`, id)
               
               return renderScoreBoardItem(index, id, name, logo, primaryColor);
-            },
+            }
           )}
 
 
