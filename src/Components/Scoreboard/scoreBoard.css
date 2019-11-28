@@ -1,5 +1,3 @@
-.scoreBoard {
-}
 
 .scoreBoardItem {
     border: 5px solid white;
@@ -10,7 +8,32 @@
     background-color: rgb(152, 158, 158);
 }
 
+@media screen and (max-width: 600px) {
+    .scoreBoardItem {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    .teamName {
+        justify-content: flex-start;
+        color:white;
+        font-size: 30px;
+        font-weight: 500;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .teamLogo {
+        height: auto;
+        width: 100px;
+    }
+}
+
 .videoPlayer {
     height: 100%;
     width: auto;
 }
+
+
+

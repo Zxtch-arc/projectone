@@ -15,12 +15,13 @@ const ScoreBoardItem = ({teamId, teamName, teamLogo}) => {
 
  const fetchData = () => {
     OWL.getMatchWins(teamId).then(response => {
+      console.log(response.data)
      setMatchWins(response.data)
    }).then(OWL.getMatchLoss(teamId).then(response => { 
      setLoss(response.data)
    })).then(OWL.lastMatchForTeam(teamId).then(response => {
      const team = response.data;
-     setOpponentId(team.competitors[0].id)
+     setOpponentId(team.competitors[1].id)
      setOpponentScore(team.scores[0].value)
      setHomeScore(team.scores[1].value)
   })).then(OWL.getTeamLogo(opponentId)

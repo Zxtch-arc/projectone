@@ -8,7 +8,7 @@ const OWL = new OverwatchLeague();
 
 const renderScoreBoardItem = (index, id, name, logo, primaryColor) => {
   const primaryBackgroundColor = {
-    background: "black"
+    backgroundColor: "black"
   }
 
   return(<ScoreBoardItem teamId={id} teamName={name} teamLogo={logo} key={index} style={primaryBackgroundColor} />);
@@ -31,7 +31,7 @@ const ScoreBoard = () => {
 
   useEffect(() => {
     fetchData();
-  },[]);
+  }, []);
   
   return (
     <div className="scoreBoard">
